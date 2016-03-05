@@ -1,3 +1,4 @@
+<!-- HEAD.ejs -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,10 +11,15 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-    <%- body %>
+    <nav>
+      <ul>
+        <li>
+	  <a href='/til'>Entries</a>
+	</li>
+	<li>
+	  <a href='/til/new'>Create an Entry</a>
+        </li>
+      </ul>
+    </nav>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-2.2.0.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-  </body>
-</html>
+
