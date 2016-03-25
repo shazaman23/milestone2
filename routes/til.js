@@ -8,7 +8,17 @@ var entries = [
 
 /*READ all: GET til listing. */
 router.get('/', function(req, res, next) {
-  res.render('til/index', { title: 'Today I Learned', entries: entries });
+  req.db.driver.execQuery(
+    "SELECT * FROM entries;",
+    function(err, data){
+      if(err){
+        console.log(err);
+      }
+
+      res.render('til/index', {title: 'Blog', entries: data });
+    }
+  );
+
 });
 
 /*CREATE entry form: GET /til/new */
