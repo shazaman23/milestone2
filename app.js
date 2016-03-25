@@ -22,12 +22,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// var db-connection-string = "";
-// app.use(orm.express(string, {
-//     define: function (db, models, next) {
-//         next();
-//     }
-// }));
+var orm = require("orm");
+var dbstring = "postgres://postgres@localhost/til";
+var string = process.env.DATABASE_URL || dbstring;
+app.use(orm.express(string, {
+     define: function (db, models, next) {
+         next();
+     }
+ }));
 
 app.use('/', routes);
 app.use('/til', til);
