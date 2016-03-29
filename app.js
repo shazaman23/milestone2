@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-var orm = require("orm");
+var orm = require('orm');
 var dbstring = "postgres://postgres@localhost/entries";
 var string = process.env.DATABASE_URL || dbstring;
 app.use(orm.express(string, {
